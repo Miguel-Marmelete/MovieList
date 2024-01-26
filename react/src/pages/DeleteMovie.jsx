@@ -1,17 +1,17 @@
-import React from "react";
-import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+
+const API_ENDPOINT = "http://localhost:8000/api/delete";
+
 function DeleteMovie() {
-    //const navigate = useNavigate();
     const [formData, setFormData] = useState({
         movie_id: "",
     });
 
     const handleChange = (e) => {
         setFormData({
+            ...formData,
             [e.target.name]: e.target.value,
         });
-        console.log("data:", formData);
     };
 
     const clearForm = () => {
@@ -20,40 +20,42 @@ function DeleteMovie() {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        fetch("http://localhost:8000/api/delete", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        })
-            .then(async (response) => {
-                if (!response.ok) {
-                    throw await response.json();
-                }
-                return response.json();
-            })
-            .then((data) => {
-                console.log("Resposta do backend:", data);
-                alert("Filme removido com sucesso");
-                //navigate("/");
-                //window.location.reload();
-            })
-            .catch((error) => {
-                console.error(error.message);
-                //alert(error.message);
+    const handleDelete = async () => {
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+
+            const data = await response.json();
+            console.log("Resposta do backend:", data);
+            alert(data.message);
+        } catch (error) {
+            console.error(error.message);
+            alert(error.message);
+        }
 
         clearForm();
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleDelete();
+    };
+
     return (
-        <div className="store_container">
-            <form className="store_form" onSubmit={handleSubmit}>
-                <h1 className="store_header">Delete Movie</h1>
-                <br></br>
+        <div className="delete_container">
+            <form className="delete_form" onSubmit={handleSubmit}>
+                <h1 className="delete_header">Delete Movie</h1>
+
                 <div className="movie_id_container">
                     <label htmlFor="movie_id" className="movie_id_label">
                         Movie ID
@@ -69,8 +71,8 @@ function DeleteMovie() {
                     />
                 </div>
 
-                <div className="store_button_container">
-                    <button type="submit" className="store_button">
+                <div className="delete_button_container">
+                    <button type="submit" className="delete_button">
                         Delete Movie
                     </button>
                 </div>

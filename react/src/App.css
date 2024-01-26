@@ -179,7 +179,8 @@ body {
 /* Estilos para o container principal */
 .login_container,
 .register_container,
-.store_container {
+.store_container,
+.delete_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,7 +190,8 @@ body {
 /* Estilos para o formulário */
 .login_form,
 .register_form,
-.store_form {
+.store_form,
+.delete_form {
     background-color: #e4e1e1;
     padding: 80px;
     padding-left: 70px;
@@ -199,7 +201,8 @@ body {
 /* Estilos para o cabeçalho "Login" */
 .login_header,
 .register_header,
-.store_header {
+.store_header,
+.delete_header {
     text-align: center;
     margin-bottom: 20px;
     margin-top: 0px;
@@ -242,7 +245,8 @@ body {
 /* Estilos para o container do botão de login */
 .login_button_container,
 .register_button_container,
-.store_button_container {
+.store_button_container,
+.delete_button_container {
     text-align: center;
     margin-top: 10px;
 }
@@ -250,7 +254,8 @@ body {
 /* Estilos para o botão de login */
 .login_button,
 .register_button,
-.store_button {
+.store_button,
+.delete_button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;

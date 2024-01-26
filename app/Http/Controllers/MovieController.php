@@ -74,7 +74,12 @@ class MovieController extends Controller
         try {
             $request->validate(['movie_id' => ['required','numeric']]);
     
-            Movie::destroy($request->input('movie_id'));
+            if(Movie::find($request->input('movie_id'))){
+                Movie::destroy($request->input('movie_id'));
+            }else{
+                return response()->json(['message' => 'Movie Doesnt Exist']);
+            }
+            
             
             return response()->json(['message' => 'Filme Removido com Sucesso']);
         }catch (\Exception $e) {

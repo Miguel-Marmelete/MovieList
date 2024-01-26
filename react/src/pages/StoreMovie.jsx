@@ -1,8 +1,10 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const API_ENDPOINT = "http://localhost:8000/api/store";
+
 function StoreMovie() {
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         movie_title: "",
         movie_rating: "",
@@ -15,7 +17,6 @@ function StoreMovie() {
             ...formData,
             [e.target.name]: e.target.value,
         });
-        console.log("data:", formData);
     };
 
     const clearForm = () => {
@@ -27,45 +28,41 @@ function StoreMovie() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:8000/api/store", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        })
-            .then(async (response) => {
-                if (!response.ok) {
-                    throw await response.json();
-                }
-                return response.json();
-            })
-            .then((data) => {
-                console.log("Resposta do backend:", data);
-                alert("Filme adicionado com sucesso");
-                //navigate("/");
-                //window.location.reload();
-            })
-            .catch((error) => {
-                console.log(error.message);
-                alert(error.message);
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
             });
+
+            if (!response.ok) {
+                throw await response.json();
+            }
+
+            const data = await response.json();
+            console.log("Resposta do backend:", data);
+            alert(data.message);
+        } catch (error) {
+            console.error("Erro no backend:", error.message);
+            alert(error.message);
+        }
 
         clearForm();
     };
+
     return (
         <div className="store_container">
             <form className="store_form" onSubmit={handleSubmit}>
                 <h1 className="store_header">Store Movie</h1>
-                <br></br>
                 <div className="movie_title_container">
                     <label htmlFor="movie_title" className="movie_title_label">
                         Movie Title
                     </label>
-                    <br></br>
                     <input
                         type="text"
                         className="movie_title_input"
