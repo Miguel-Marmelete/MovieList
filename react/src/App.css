@@ -1,0 +1,267 @@
+body {
+    width: 100%;
+    margin: auto;
+}
+/*--------------------------------- Navbar CSS---------------------------------------*/
+.navbar_container {
+    display: flex;
+
+    background-color: rgb(59, 156, 197);
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    font-weight: bold;
+    width: auto;
+    overflow: hidden;
+}
+.logo {
+    margin: 10px 20px;
+    width: auto;
+    font-size: x-large;
+}
+
+.navbar_search-input {
+    width: auto;
+    height: 30px;
+}
+.navbar_search-button {
+    height: 35px;
+}
+
+.watchlist_button,
+.navbar_rate-button,
+.navbar_login_button,
+.navbar_register_button {
+    margin-right: 10px;
+    width: auto;
+    height: 40%;
+    font-size: larger;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.watchlist_button:hover,
+.navbar_rate-button:hover {
+    background-color: #6e7777;
+}
+
+/*--------------------------------- Cards grid and Card CSS---------------------------------------*/
+
+.movies_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+}
+.movie_card {
+    background-color: rgb(59, 156, 197);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    height: min-content;
+}
+.movie_card_info svg {
+    color: #f7d354;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+.movie_card_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+}
+
+.add_remove_button {
+    width: 100px;
+    height: 30px;
+    margin: 2px;
+    font-size: larger;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add_remove_button:hover {
+    background-color: #6e7777;
+}
+
+.movie_card_image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+.movie_card_image:hover {
+    opacity: 0.7;
+}
+.rating {
+    font-size: x-large;
+}
+
+/*-------------Watchlist------------------------*/
+.watchlist_page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*-------------MovieInfo Component------------------------*/
+.movie_info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.movie_info_image {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.movie_info_title {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.movie_info_rating {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.movie_info_rating svg {
+    color: #f7d354;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+.movie_info_release_date_div,
+.movie_info_Overview_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie_info_release_date_header,
+.movie_info_Overview_header {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.movie_info_release_date,
+.movie_info_Overview {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+/*-------------Login Page------------------------*/
+
+/* Estilos para o container principal */
+.login_container,
+.register_container,
+.store_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Estilos para o formulário */
+.login_form,
+.register_form,
+.store_form {
+    background-color: #e4e1e1;
+    padding: 80px;
+    padding-left: 70px;
+    border-radius: 10px;
+}
+
+/* Estilos para o cabeçalho "Login" */
+.login_header,
+.register_header,
+.store_header {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+/* Estilos para o container do campo de nome de usuário */
+.username_container,
+.movie_title_container,
+.movie_rating_container {
+    margin: 0px;
+}
+
+/* Estilos para o campo de entrada de nome de usuário */
+.username_input,
+.password_input,
+.token_input,
+.movie_title_input,
+.movie_rating_input,
+.movie_description_input,
+.movie_poster_path_input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para o container do campo de senha */
+.password_container,
+.token_container {
+    margin-bottom: 10px;
+}
+
+/* Estilos para o rótulo do campo de senha */
+.password_label,
+.username_label,
+.token_label {
+    font-weight: bold;
+}
+
+/* Estilos para o container do botão de login */
+.login_button_container,
+.register_button_container,
+.store_button_container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilos para o botão de login */
+.login_button,
+.register_button,
+.store_button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilos para o botão de login ao passar o mouse sobre ele */
+.login_button:hover,
+.register_button:hover {
+    background-color: #0056b3;
+}
