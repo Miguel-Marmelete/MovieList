@@ -12,13 +12,19 @@ class AuthController extends Controller
         //verificar se ja existe antes de criar
          
         try {
+            $request->validate([
+                'username' => ['required','string'],
+                'password' => ['required','string'],
+                'token' => ['required','string']]);
+
             $dados =  $request->all();
             $user = new User();
 
-            if($user->checkIfUserExists($dados['username'])){
+            if(User::where('username', $dados['username'])->first()){
                 return response()->json(['message' => 'O nome de utilizador já está em uso. Escolha outro.'], 500);
             }
             $user->store($dados['username'],$dados['password'],$dados['token']);
+            
 
             return response()->json(['message' => 'User created successfully'], 200);
         } catch (\Exception $e) {
@@ -30,6 +36,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
+            $request->validate([
+                'username' => ['required','string'],
+                'password' => ['required','string']]);
             $dados = $request->all();
 
             $user = User::where('username', $dados['username'])->first();

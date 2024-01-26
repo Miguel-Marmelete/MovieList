@@ -12,6 +12,9 @@ class UserController extends Controller
     
     public function watchlist($username){
         try {
+            if (!is_string($username)) {
+                return response()->json(['message' => 'Invalid username format'], 400);
+            }
             // Receber username -> buscar lista de ids dos filmes com esse username na watchlist
             $user = User::where('username', $username)->first();
 
@@ -34,6 +37,9 @@ class UserController extends Controller
 }
     public function isUserAdmin($username){
         try{
+            if (!is_string($username)) {
+                return response()->json(['message' => 'Invalid username format'], 400);
+            }
             $user = User::where('username',$username)->first();
             if($user){
                 if($user->role == 'admin'){

@@ -34,21 +34,5 @@ class Movie extends Model
         }
             
     }
-    /*
-    public function deleteMovie($movie_id){
-            
-          try{
-            $movie_to_delete = $this->where('movie_id',$movie_id)->first();
-            if($movie_to_delete){
-                $this->destroy($movie_id);
-            }else{
-                return response()->json(['Movie Doest Exist' => $e->getMessage()], 500);
-            }
-            
-  
-          }catch (\Exception $e) {
-              return response()->json(['error' => $e->getMessage()], 500);
-          }
-              
-      }*/
+
 }

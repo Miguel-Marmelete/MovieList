@@ -50,8 +50,8 @@ function StoreMovie() {
                 //window.location.reload();
             })
             .catch((error) => {
-                console.error(error.message);
-                //alert(error.message);
+                console.log(error.message);
+                alert(error.message);
             });
 
         clearForm();
@@ -73,6 +73,7 @@ function StoreMovie() {
                         name="movie_title"
                         value={formData.movie_title}
                         onChange={handleChange}
+                        required
                     />
                 </div>
 
@@ -91,6 +92,7 @@ function StoreMovie() {
                         name="movie_rating"
                         value={formData.movie_rating}
                         onChange={handleChange}
+                        required
                     />
                 </div>
 
@@ -109,6 +111,7 @@ function StoreMovie() {
                         name="movie_description"
                         value={formData.movie_description}
                         onChange={handleChange}
+                        required
                     />
                 </div>
 
@@ -127,6 +130,7 @@ function StoreMovie() {
                         name="movie_poster_path"
                         value={formData.movie_poster_path}
                         onChange={handleChange}
+                        required
                     />
                 </div>
 

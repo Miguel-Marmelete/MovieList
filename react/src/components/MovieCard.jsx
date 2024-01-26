@@ -16,14 +16,14 @@ function MovieCard({ movie }) {
             const itemInList = await checkIfItemInList(movie.movie_id);
             setIsItemInList(itemInList);
         };
-        if (sessionStorage.getItem("username")) {
-            checkItemInList();
-        }
         const checkIfUserIsAdmin = async () => {
             const role = await isUserAdmin();
             setIsAdmin(role);
         };
-        checkIfUserIsAdmin();
+        if (sessionStorage.getItem("username")) {
+            checkItemInList();
+            checkIfUserIsAdmin();
+        }
     }, [isItemInList]);
 
     const handleAddRemoveClick = async () => {
