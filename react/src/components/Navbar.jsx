@@ -40,38 +40,46 @@ function Navbar() {
 
     return (
         <div className="navbar_container">
-            <div className="logo">
-                <Link
-                    to={`/`}
-                    style={{ color: "#000", textDecoration: "none" }}
-                >
-                    Movie
-                    <br />
-                    List
-                </Link>
+            <div class="navbar_left_items">
+                <div className="logo">
+                    <Link
+                        to={`/`}
+                        style={{ color: "#000", textDecoration: "none" }}
+                    >
+                        Movie
+                        <br />
+                        List
+                    </Link>
+                </div>
+                {isLoggedIn && <p>{sessionStorage.getItem("username")}</p>}
+                {isAdmin && (
+                    <Link to={`/AdminPanel`}>
+                        <button className="admin_panel_button">
+                            Admin Panel
+                        </button>
+                    </Link>
+                )}
             </div>
-            {isLoggedIn && <p>{sessionStorage.getItem("username")}</p>}
-            {isAdmin && (
-                <Link to={`/AdminPanel`}>
-                    <button className="navbar_search-button">
-                        Admin Panel
-                    </button>
-                </Link>
-            )}
 
-            <div className="navbar_search">
-                <input
-                    type="text"
-                    placeholder="Search Movie"
-                    className="navbar_search-input"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                ></input>
-                <button className="navbar_search-button" onClick={handleSearch}>
-                    Search
-                </button>
+            <div class="navbar_center_items">
+                <div className="navbar_search">
+                    <input
+                        type="text"
+                        placeholder="Search Movie"
+                        className="navbar_search-input"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                    ></input>
+                    <button
+                        className="navbar_search-button"
+                        onClick={handleSearch}
+                    >
+                        Search
+                    </button>
+                </div>
             </div>
-            <div>
+
+            <div class="navbar_right_items">
                 {!isLoggedIn && (
                     <div>
                         <button className="navbar_login_button">

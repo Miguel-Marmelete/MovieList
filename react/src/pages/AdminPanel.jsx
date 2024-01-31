@@ -5,12 +5,14 @@ function AdminPanel() {
         <div className="login_container">
             <div className="login_form">
                 <Link to={`/store`}>
-                    <button>Botao1</button>
+                    <button className="store_movie_button">Store Movie</button>
                 </Link>
 
                 <br></br>
                 <Link to={`/delete`}>
-                    <button>Botao2</button>
+                    <button className="delete_movie_button">
+                        Delete Movie
+                    </button>
                 </Link>
             </div>
         </div>

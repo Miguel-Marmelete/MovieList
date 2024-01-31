@@ -3,16 +3,35 @@ body {
     margin: auto;
 }
 /*--------------------------------- Navbar CSS---------------------------------------*/
+
 .navbar_container {
     display: flex;
-
-    background-color: rgb(59, 156, 197);
     justify-content: space-between;
-    height: 80px;
     align-items: center;
+    background-color: rgb(59, 156, 197);
+    color: rgb(0, 0, 0);
     font-weight: bold;
-    width: auto;
     overflow: hidden;
+    width: auto;
+}
+
+.navbar_center_items {
+    flex: 1;
+    text-align: center;
+}
+
+.navbar_left_items {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar_right_items {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .logo {
     margin: 10px 20px;
@@ -31,8 +50,11 @@ body {
 .watchlist_button,
 .navbar_rate-button,
 .navbar_login_button,
-.navbar_register_button {
-    margin-right: 10px;
+.navbar_register_button,
+.delete_movie_button,
+.store_movie_button,
+.admin_panel_button {
+    margin: 5px;
     width: auto;
     height: 40%;
     font-size: larger;
@@ -193,9 +215,10 @@ body {
 .store_form,
 .delete_form {
     background-color: #e4e1e1;
-    padding: 80px;
-    padding-left: 70px;
+    padding: 6%;
+    padding-left: 5%;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 /* Estilos para o cabeçalho "Login" */
@@ -204,8 +227,8 @@ body {
 .store_header,
 .delete_header {
     text-align: center;
-    margin-bottom: 20px;
-    margin-top: 0px;
+    margin-bottom: 5%;
+    margin-top: 1%;
 }
 
 /* Estilos para o container do campo de nome de usuário */
@@ -248,7 +271,7 @@ body {
 .store_button_container,
 .delete_button_container {
     text-align: center;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 /* Estilos para o botão de login */
@@ -257,16 +280,10 @@ body {
 .store_button,
 .delete_button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
-
-/* Estilos para o botão de login ao passar o mouse sobre ele */
-.login_button:hover,
-.register_button:hover {
-    background-color: #0056b3;
 }

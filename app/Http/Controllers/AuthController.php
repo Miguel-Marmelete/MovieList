@@ -10,7 +10,7 @@ class AuthController extends Controller
     public function signUp(Request $request)
     {
         //verificar se ja existe antes de criar
-         //laskdlsadlas
+         
         try {
             $request->validate([
                 'username' => ['required','string'],
