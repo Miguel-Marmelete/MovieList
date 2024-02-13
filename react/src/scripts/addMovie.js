@@ -13,7 +13,7 @@ async function addMovie(movieId) {
     };
 
     const response = await fetch(
-        `http://localhost:8000/api/movie/add`,
+        `http://localhost:8000/api/watchlist/add/movie`,
         options
     );
     const movieData = await response.json();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_ENDPOINT = "http://localhost:8000/api/store";
+const API_ENDPOINT = "http://localhost:8000/api/movie/store";
 
 function StoreMovie() {
     const navigate = useNavigate();

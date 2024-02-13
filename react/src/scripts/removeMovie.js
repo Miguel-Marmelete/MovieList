@@ -14,7 +14,7 @@ async function removeMovie(movieId) {
     };
 
     const response = await fetch(
-        `http://localhost:8000/api/movie/remove`,
+        `http://localhost:8000/api/watchlist/remove/movie`,
         options
     );
     const movieData = await response.json();

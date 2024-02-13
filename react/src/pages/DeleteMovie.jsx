@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API_ENDPOINT = "http://localhost:8000/api/delete";
+const API_ENDPOINT = "http://localhost:8000/api/movie/delete";
 
 function DeleteMovie() {
     const [formData, setFormData] = useState({

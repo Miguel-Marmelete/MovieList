@@ -20,13 +20,13 @@ use App\Http\Controllers\WatchlistController;
 
 Route::post('/signUp', [AuthController::class,'signUp']);
 Route::post('/login', [AuthController::class,'login']);
-Route::post('/movie/add', [WatchlistController::class,'add']);
-Route::post('/movie/remove', [WatchlistController::class,'remove']);
-Route::post('/store', [MovieController::class,'store']);
-Route::post('/delete', [MovieController::class,'delete']);
+Route::post('/watchlist/add/movie', [WatchlistController::class,'add']);
+Route::post('/watchlist/remove/movie', [WatchlistController::class,'remove']);
+Route::post('/movie/store', [MovieController::class,'store']);
+Route::post('/movie/delete', [MovieController::class,'delete']);
 
 Route::get('/getAllMovies', [MovieController::class,'getAllMovies']);
-Route::get('/watchlist/{username}', [UserController::class,'watchlist']);
+Route::get('/watchlist/{username}', [WatchlistController::class,'watchlist']);
 Route::get('/movie/id/{movie_id}', [MovieController::class,'getMovieById']);
 Route::get('/movie/title/{movie_title}', [MovieController::class,'getMovieByTitle']);
 Route::get('/{username}/watchlist/hasitem/{movie_id}', [WatchlistController::class,'isMovieInWatchlist']);
